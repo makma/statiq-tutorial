@@ -1,0 +1,19 @@
+﻿@model HomeViewModel
+
+<div>
+    @if (Model.Title != null)
+    {
+        <h1>
+            @Model.Title
+        </h1>
+    }
+    @if (Model.Content != null)
+    {
+        <p>
+            @Model.Content
+        </p>
+        <p>
+            This site also contains showcase of listing items wih detail pages. You can find listing/deatail output under the <a href="/features-razor">features-razor</a> or <a href="/features-handlebars">features-handlebars</a> route.
+        </p>
+    }
+</div>

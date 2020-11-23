@@ -1,0 +1,20 @@
+﻿@model FeaturesListingViewModel
+
+<h1> Features rendered by Razor</h1>
+<div>
+    @foreach (var feature in Model.Features)
+    {
+        @if (feature.Title != null)
+        {
+            <h2>
+                <a href="features/@feature.Slug">@feature.Title</a>
+            </h2>
+        }
+        @if (feature.Description != null)
+        {
+            <h3>
+                @feature.Description
+            </h3>
+        }
+     }
+</div>

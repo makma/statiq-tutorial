@@ -1,0 +1,12 @@
+﻿<h1> Features rendered by Handlebars</h1>
+
+<div>
+    {{#each Features}}
+        <h2>
+            <a href="features/{{Slug}}">{{Title}}</a>
+        </h2>
+        <h3>
+            {{Description}}
+        </h3>
+    {{/each}}
+</div>
