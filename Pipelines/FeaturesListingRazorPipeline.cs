@@ -1,8 +1,8 @@
-﻿using Statiq.Common;
+﻿using System.Collections.Generic;
+using Statiq.Common;
 using Statiq.Core;
 using Statiq.Razor;
 using Statiq.Yaml;
-using System.Collections.Generic;
 
 namespace StatiqTutorial
 {
@@ -15,13 +15,35 @@ namespace StatiqTutorial
                 new ReadFiles(pattern: "content/features/*.md"),
             };
 
-            ProcessModules = new ModuleList {
+            ProcessModules = new ModuleList
+            {
                 new ExtractFrontMatter(new ParseYaml()),
-                new MergeContent(new ReadFiles(patterns: "FeaturesListing.cshtml")),
-                new RenderRazor().WithModel(Config.FromContext((context) =>
+                new ReplaceDocuments(
+                    Config.FromContext(context =>
+                    {
+                        return (IEnumerable<IDocument>) new []
+                        {
+                            context.CreateDocument(
+                                new NormalizedPath("features-razor.html"),
+                                new[]
+                                {
+                                    new KeyValuePair<string, object>(Keys.Children, context.Inputs)
+                                }
+                            )
+                        };
+                    })
+                ),
+            };
+
+            OutputModules = new ModuleList
+            {
+                new MergeContent(new ReadFiles("FeaturesListing.cshtml")),
+                new RenderRazor().WithModel(Config.FromDocument((document, context) =>
                 {
+                    var featureDocuments = document.GetChildren();
                     List<Feature> features = new List<Feature>();
-                    foreach (var featureDocument in context.Inputs)
+
+                    foreach (var featureDocument in featureDocuments)
                     {
                         var featureTitle = featureDocument.GetString("Title");
                         var featureDescription = featureDocument.GetString("Description");
@@ -30,10 +52,6 @@ namespace StatiqTutorial
                     }
                     return new FeaturesListingViewModel(features);
                 })),
-                new SetDestination(Config.FromDocument((doc, ctx) => new NormalizedPath("features-razor.html")))
-            };
-
-            OutputModules = new ModuleList {
                 new WriteFiles()
             };
         }
