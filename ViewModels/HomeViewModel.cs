@@ -6,6 +6,12 @@
 
         public string Content { get; private set; }
 
+        public HomeViewModel(Home home)
+        {
+            Title = home.Title;
+            Content = home.Content;
+        }
+
         public HomeViewModel(string title, string content)
         {
             Title = title;

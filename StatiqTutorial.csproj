@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Kontent.Statiq" Version="1.0.0-beta0008" />
     <PackageReference Include="Statiq.Web" Version="1.0.0-beta.14" />
   </ItemGroup>
 
