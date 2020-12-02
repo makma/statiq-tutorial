@@ -1,5 +1,7 @@
 ﻿{
-  "ProjectId": "60bc2ac5-f3d6-004c-063e-56febdd011c2",
-  "PreviewApiKey": "",
-  "UsePreviewApi": false
+  "DeliveryOptions": {
+    "ProjectId": "60bc2ac5-f3d6-004c-063e-56febdd011c2",
+    "PreviewApiKey": "",
+    "UsePreviewApi": false
+  }
 }
