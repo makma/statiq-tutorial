@@ -1,6 +1,4 @@
-﻿using System.Security;
-
-namespace StatiqTutorial
+﻿namespace StatiqTutorial
 {
     public class Feature
     {
