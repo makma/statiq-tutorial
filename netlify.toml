@@ -1,0 +1,6 @@
+[build]
+  publish = "output"
+  command = "dotnet run"
+ 
+[template.environment]
+  DeliveryOptions__ProjectId = "60bc2ac5-f3d6-004c-063e-56febdd011c2"
