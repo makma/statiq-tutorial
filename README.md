@@ -1,4 +1,6 @@
 # statiq-tutorial
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/makma/statiq-tutorial)
+
 This is a source code for the Statiq Tutorial article published on Netlify.
 The output of this project for published content is available on https://statiq-tutorial.netlify.app/.
 The output of this project for unpublished content is available on https://statiq-tutorial-preview.netlify.app/.
